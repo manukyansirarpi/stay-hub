@@ -1,4 +1,12 @@
+import "bootstrap/dist/css/bootstrap.css";
+import "./globals.css";
+
 import type { Metadata } from "next";
+import Script from "next/script";
+import Head from "./head";
+import { GlobalProvider } from "./ GlobalProvider";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,7 +20,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <Head />
+      <body>
+        <GlobalProvider>
+          <Header></Header>
+          {children}
+          <Footer></Footer>
+        </GlobalProvider>
+
+        <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></Script>
+        <script src="https://kit.fontawesome.com/706b455fee.js"></script>
+      </body>
     </html>
   );
 }

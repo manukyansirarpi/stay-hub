@@ -1,5 +1,5 @@
-import styles from "./page.module.css";
+import Home from "@/components/home";
 
-export default function Home() {
-  return <div className={styles.page}>Next APp</div>;
+export default function HomePage() {
+  return <Home></Home>;
 }
