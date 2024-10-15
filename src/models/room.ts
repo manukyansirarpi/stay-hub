@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-export interface Image {
+export interface ImageI {
   public_id: string;
   url: string;
 }
@@ -30,13 +30,14 @@ export interface RoomI extends Document {
   guestCapacity: number;
   numOfBeds: number;
   internet: boolean;
+  isPetsAllowed: boolean;
   isBreakfast: boolean;
   isAirConditioned: boolean;
   isRoomCleaning: boolean;
   numOfReviews: number;
   ratings: number;
   numberOfReviews: number;
-  images: Image[];
+  images: ImageI[];
   category: string;
   reviews: Review[];
   user: mongoose.Schema.Types.ObjectId;

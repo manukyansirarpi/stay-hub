@@ -7,7 +7,6 @@ import { NextRequest, NextResponse } from "next/server";
 // Get all rooms  =>  GET: /api/rooms
 export const allRooms = catchAsyncErrors(async (request: NextRequest) => {
   const resultPerPage: number = 10;
-
   const { searchParams } = new URL(request.url);
   const queryStr: any = {};
 
@@ -42,7 +41,7 @@ export const getRoom = catchAsyncErrors(
 
     return NextResponse.json({
       success: true,
-      data: room,
+      room,
     });
   }
 );
@@ -55,7 +54,7 @@ export const newRoom = catchAsyncErrors(async (request: NextRequest) => {
 
   return NextResponse.json({
     success: true,
-    data: room,
+    room,
   });
 });
 
@@ -76,7 +75,7 @@ export const updateRoom = catchAsyncErrors(
 
     return NextResponse.json({
       success: true,
-      data: room,
+      room,
     });
   }
 );
@@ -94,7 +93,7 @@ export const deleteRoom = catchAsyncErrors(
 
     return NextResponse.json({
       success: true,
-      data: {},
+      room: {},
     });
   }
 );
