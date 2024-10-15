@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seed": "tsc src/seed/seed.ts --outDir .temp && node .temp/seed/seed.js && rm -rf .temp"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",

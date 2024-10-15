@@ -33,6 +33,7 @@ export interface RoomI extends Document {
   isBreakfast: boolean;
   isAirConditioned: boolean;
   isRoomCleaning: boolean;
+  numOfReviews: number;
   ratings: number;
   numberOfReviews: number;
   images: Image[];
@@ -100,6 +101,10 @@ const RoomSchema: Schema = new Schema({
   isRoomCleaning: {
     type: Boolean,
     default: false,
+  },
+  numOfReviews: {
+    type: Number,
+    default: 0,
   },
   ratings: {
     type: Number,
