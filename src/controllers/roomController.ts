@@ -6,7 +6,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 // Get all rooms  =>  GET: /api/rooms
 export const allRooms = catchAsyncErrors(async (request: NextRequest) => {
-  const resultPerPage: number = 10;
+  const resultPerPage: number = 4;
   const { searchParams } = new URL(request.url);
   const queryStr: any = {};
 

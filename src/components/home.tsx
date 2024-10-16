@@ -1,18 +1,21 @@
 import RoomItem from "@/components/room/roomItem";
+import { useSearchParams } from "next/navigation";
 
 import { RoomI } from "@/models/room";
+import CustomPagination from "@/components/layout/customPagination";
 
 interface HomeProps {
   data: {
     success: boolean;
-    resPerPage: number;
+    resultPerPage: number;
     filteredRoomCount: number;
     rooms: RoomI[];
   };
 }
 
 const Home = async ({ data }: HomeProps) => {
-  const { rooms, resPerPage, filteredRoomCount } = data;
+  const { rooms, resultPerPage, filteredRoomCount } = data;
+
   return (
     <div>
       <section id="rooms" className="container mt-5">
@@ -32,6 +35,10 @@ const Home = async ({ data }: HomeProps) => {
           )}
         </div>
       </section>
+      <CustomPagination
+        resultPerPage={resultPerPage}
+        filteredRoomCount={filteredRoomCount}
+      />
     </div>
   );
 };
