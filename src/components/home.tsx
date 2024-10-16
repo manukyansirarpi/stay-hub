@@ -1,7 +1,9 @@
+"use client";
 import RoomItem from "@/components/room/roomItem";
 
 import { RoomI } from "@/models/room";
 import CustomPagination from "@/components/layout/customPagination";
+import { useSearchParams } from "next/navigation";
 
 interface HomeProps {
   data: {
@@ -13,12 +15,19 @@ interface HomeProps {
 }
 
 const Home = async ({ data }: HomeProps) => {
+  const searchParams = useSearchParams();
+  const location = searchParams.get("location");
+
   const { rooms, resultPerPage, filteredRoomCount } = data;
 
   return (
     <div>
       <section id="rooms" className="container mt-5">
-        <h2 className="mb-3 ml-2 stays-heading">All Rooms</h2>
+        <h2 className="mb-3 ml-2 stays-heading">
+          {location
+            ? `${rooms?.length} rooms found in ${location}`
+            : "All Rooms"}
+        </h2>
         <a href="/search" className="ml-2 back-to-search">
           <i className="fa fa-arrow-left"></i> Back to Search
         </a>
