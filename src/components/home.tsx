@@ -1,5 +1,4 @@
 import RoomItem from "@/components/room/roomItem";
-import { useSearchParams } from "next/navigation";
 
 import { RoomI } from "@/models/room";
 import CustomPagination from "@/components/layout/customPagination";
