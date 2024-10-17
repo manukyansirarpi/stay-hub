@@ -44,7 +44,7 @@ export interface RoomI extends Document {
   createdAt: Date;
 }
 
-const RoomSchema: Schema = new Schema({
+const RoomSchema: Schema<RoomI> = new Schema({
   name: {
     type: String,
     required: [true, "Name is required"],

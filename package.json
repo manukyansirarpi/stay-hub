@@ -10,9 +10,11 @@
     "seed": "tsc src/seed/seed.ts --outDir .temp && node .temp/seed/seed.js && rm -rf .temp"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^5.3.3",
     "mongoose": "^8.7.0",
     "next": "14.2.14",
+    "next-auth": "^4.24.8",
     "react": "^18",
     "react-bootstrap": "^2.10.5",
     "react-dom": "^18",

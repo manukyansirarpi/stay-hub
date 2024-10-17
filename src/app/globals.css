@@ -249,8 +249,9 @@ nav {
   box-shadow: 0 4px 6px -6px #222;
 }
 
-.login-header-btn {
+.btn.login-header-btn {
   background-color: #7c683f;
+  color: white;
 }
 
 .login-header-btn a {

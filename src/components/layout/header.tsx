@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Header = () => {
   return (
     <nav className="navbar sticky-top py-2">
@@ -49,6 +51,12 @@ const Header = () => {
               </a>
             </div>
           </div>
+          <Link
+            href="/login"
+            className="btn   px-4   login-header-btn float-right"
+          >
+            Login
+          </Link>
         </div>
       </div>
     </nav>
