@@ -25,7 +25,7 @@ const Home = async ({ data }: HomeProps) => {
       <section id="rooms" className="container mt-5">
         <h2 className="mb-3 ml-2 stays-heading">
           {location
-            ? `${rooms?.length} rooms found in ${location}`
+            ? `${filteredRoomCount} rooms found in ${location}`
             : "All Rooms"}
         </h2>
         <a href="/search" className="ml-2 back-to-search">
