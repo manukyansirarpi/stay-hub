@@ -8,7 +8,9 @@ import { useEffect } from "react";
 const Header = () => {
   const { data } = useSession();
   const dispatch = useAppDispatch();
-  const { user } = useAppSelector((state) => state.auth);
+  const { user } = useAppSelector((state) => {
+    return state.auth;
+  });
 
   const logoutHandler = () => {
     signOut();
