@@ -1,10 +1,10 @@
 "use client";
-
-import { signIn } from "next-auth/react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 import { toast } from "react-hot-toast";
+import Link from "next/link";
+
 import ButtonLoader from "../layout/buttonLoader";
 
 const Login = () => {

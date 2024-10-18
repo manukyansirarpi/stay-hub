@@ -10,6 +10,7 @@
     "seed": "tsc src/seed/seed.ts --outDir .temp && node .temp/seed/seed.js && rm -rf .temp"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.3.0",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.3.3",
     "mongoose": "^8.7.0",
@@ -20,6 +21,7 @@
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
     "react-js-pagination": "^3.0.3",
+    "react-redux": "^9.1.2",
     "react-star-ratings": "^2.3.0"
   },
   "devDependencies": {

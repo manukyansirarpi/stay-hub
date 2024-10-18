@@ -4,7 +4,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Script from "next/script";
 import Head from "./head";
-import { GlobalProvider } from "./ GlobalProvider";
+import { GlobalProvider } from "./globalProvider";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 
