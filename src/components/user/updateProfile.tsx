@@ -35,7 +35,7 @@ const UpdateProfile = () => {
     }
 
     if (error && "data" in error) {
-      toast.error(error?.data?.errMessage);
+      toast.error(error?.data?.message);
     }
 
     if (isSuccess) {
