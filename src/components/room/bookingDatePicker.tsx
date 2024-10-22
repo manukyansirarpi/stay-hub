@@ -81,7 +81,7 @@ const BookingDatePicker = ({ room }: Props) => {
       <DatePicker
         className="w-100"
         selected={checkInDate}
-        onChange={() => onChange([checkInDate, checkOutDate])}
+        onChange={onChange}
         startDate={checkInDate}
         endDate={checkOutDate}
         minDate={new Date()}

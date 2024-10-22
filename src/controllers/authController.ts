@@ -1,4 +1,4 @@
-import { catchAsyncErrors } from "@/middleware/catchAsyncErrors";
+import { catchAsyncErrors } from "@/middlewares/catchAsyncErrors";
 import User from "@/models/user";
 import ErrorHandler from "@/utils/errorHandler";
 import { getToken } from "next-auth/jwt";

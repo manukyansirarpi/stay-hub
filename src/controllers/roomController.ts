@@ -1,4 +1,4 @@
-import { catchAsyncErrors } from "@/middleware/catchAsyncErrors";
+import { catchAsyncErrors } from "@/middlewares/catchAsyncErrors";
 import Room, { RoomI } from "@/models/room";
 import APIFilters from "@/utils/apiFilters";
 import ErrorHandler from "@/utils/errorHandler";
