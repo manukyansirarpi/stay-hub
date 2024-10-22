@@ -101,7 +101,19 @@ export const getRoomBookedDates = catchAsyncErrors(async (req: NextRequest) => {
 
 // Get current user bookings   =>  /api/bookings/me
 export const myBookings = catchAsyncErrors(async (req: NextRequest) => {
-  const bookings = await Booking.find({ user: req.user._id });
+  const session = await getToken({ req });
+
+  if (!session) {
+    return NextResponse.json(
+      {
+        message: "Login first to access this route",
+      },
+      { status: 401 }
+    );
+  }
+
+  const user = session.user as UserI;
+  const bookings = await Booking.find({ user: user._id });
 
   return NextResponse.json({
     bookings,
@@ -111,9 +123,21 @@ export const myBookings = catchAsyncErrors(async (req: NextRequest) => {
 // Get booking details   =>  /api/bookings/:id
 export const getBookingDetails = catchAsyncErrors(
   async (req: NextRequest, { params }: { params: { id: string } }) => {
+    const session = await getToken({ req });
+
+    if (!session) {
+      return NextResponse.json(
+        {
+          message: "Login first to access this route",
+        },
+        { status: 401 }
+      );
+    }
+
+    const user = session.user as UserI;
     const booking = await Booking.findById(params.id).populate("user room");
 
-    if (booking.user?._id?.toString() !== req.user._id) {
+    if (booking.user?._id?.toString() !== user._id) {
       throw new ErrorHandler("You can not view this booking", 403);
     }
 
