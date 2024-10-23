@@ -1,4 +1,4 @@
-## Stay Hub, Full Stack Room reservation app
+## Stay Hub, Full Stack Room Reservation App
 
 ### Tech Stack
 
