@@ -12,3 +12,9 @@
 - Search for rooms / Pagination / Room details
 - Room Reservation / Stripe Payment
 - Room Review
+
+
+[Watch the demo]()
+
+- [![Watch the video](https://img.youtube.com/vi/F2xk1YMevZY/0.jpg)]( https://youtu.be/F2xk1YMevZY )
+
