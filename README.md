@@ -1,6 +1,6 @@
 ### This is my portfolio project - Full Stack Room Reservation App
 
-## Stay Hub, 
+## Stay Hub
 
 ### Tech Stack
 
