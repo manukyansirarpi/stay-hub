@@ -1,6 +1,6 @@
 # Stay Hub Full Stack Application
 
-Welcome to Stay Hub Room Reservation Application! This is a Next.js we Full Stack application which allows users to search and make reservations for the rooms, as well as pay for the stay. 
+Welcome to Stay Hub Room Reservation Application! This is a Next.js Full Stack application which allows users to search and make reservations for the rooms, as well as pay for the stay. 
 
 
 ### Tech Stack
