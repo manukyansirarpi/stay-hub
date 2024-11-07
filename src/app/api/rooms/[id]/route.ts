@@ -1,6 +1,6 @@
-import { getRoom, updateRoom } from "@/controllers/roomController";
+import { getRoom } from "@/controllers/roomController";
 import connectDB from "@/lib/db";
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 
 //  Get room details =>  GET: /api/rooms/:id
 export async function GET(

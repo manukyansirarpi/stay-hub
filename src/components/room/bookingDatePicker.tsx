@@ -31,7 +31,7 @@ const BookingDatePicker = ({ room }: Props) => {
   const [stripeCheckout, { error, isLoading, data: checkoutData }] =
     useLazyStripeCheckoutQuery();
 
-  const [newBooking] = useNewBookingMutation();
+  useNewBookingMutation();
   console.log("checkoutData", checkoutData);
   const [checkBookingAvailability, { data }] =
     useLazyCheckBookingAvailabilityQuery();
@@ -93,6 +93,7 @@ const BookingDatePicker = ({ room }: Props) => {
   useEffect(() => {
     debugger;
     if (error && "data" in error) {
+      // @ts-expect-error err
       toast.error(error?.data?.message);
     }
 

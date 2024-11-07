@@ -39,7 +39,7 @@ const UpdateProfile = () => {
     }
 
     if (isSuccess) {
-      //@ts-ignore
+      //@ts-expect-error err
       updateSession();
 
       router.refresh();

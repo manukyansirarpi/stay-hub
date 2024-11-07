@@ -1,6 +1,6 @@
 import { deleteRoom, updateRoom } from "@/controllers/roomController";
 import connectDB from "@/lib/db";
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 
 // Update room details  =>  PUT: /api/admin/rooms/:id
 export async function PUT(

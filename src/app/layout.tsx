@@ -29,7 +29,7 @@ export default function RootLayout({
         </GlobalProvider>
 
         <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></Script>
-        <script src="https://kit.fontawesome.com/706b455fee.js"></script>
+        <Script src="https://kit.fontawesome.com/706b455fee.js"></Script>
       </body>
     </html>
   );

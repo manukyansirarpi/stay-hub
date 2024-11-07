@@ -15,7 +15,7 @@ const connectDB = async () => {
     DB_URI = process.env.DB_URI_PROD!;
   }
 
-  await mongoose.connect(DB_URI).then((connection) => {
+  await mongoose.connect(DB_URI).then(() => {
     console.log("Connected to MongoDB");
   });
 };

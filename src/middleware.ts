@@ -1,4 +1,3 @@
-import { withAuth } from "next-auth/middleware";
 import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 import { UserI } from "@/models/user";

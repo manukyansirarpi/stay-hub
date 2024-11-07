@@ -1,6 +1,7 @@
 import connectDB from "@/lib/db";
 import User, { UserI } from "@/models/user";
 import { NextApiRequest, NextApiResponse } from "next";
+
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
@@ -21,7 +22,7 @@ async function auth(req: NextApiRequest, res: NextApiResponse) {
     },
     providers: [
       CredentialsProvider({
-        // @ts-ignore
+        // @ts-expect-error aut
         async authorize(credentials: Credentials) {
           connectDB();
 
@@ -49,7 +50,7 @@ async function auth(req: NextApiRequest, res: NextApiResponse) {
     callbacks: {
       jwt: async ({ token, user }) => {
         const jwtToken = token as Token;
-        user && (token.user = user);
+        if (user) token.user = user;
 
         // Update session when user is updated
         if (req.url?.includes("/api/auth/session?update")) {
@@ -63,7 +64,7 @@ async function auth(req: NextApiRequest, res: NextApiResponse) {
       session: async ({ session, token }) => {
         session.user = token.user as UserI;
 
-        //@ts-ignore
+        // @ts-expect-error aut
         delete session?.user?.password;
 
         return session;

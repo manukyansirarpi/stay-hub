@@ -5,6 +5,10 @@ const nextConfig = {
     DB_URI_LOCAl: "mongodb://localhost:27017/stay-easy",
     DB_URI_PROD: "",
 
+    CLOUDINARY_CLOUD_NAME: "dsbli9nhd",
+    CLOUDINARY_API_KEY: "782399657795877",
+    CLOUDINARY_API_SECRET: "1W-ZTgNXX7dyO6Q6kFvDel9iHyU",
+
     STRIPE_SECRET_KEY:
       "sk_test_51QCy8a04wfBYPN36bxWpPMqR3KUCM6mfaIvxf8wEDWS6cjF9v4snAgdsE7PhjVsFk8Bg2ijIDsrer2S8QwbuiWz6002jIbUubM",
     STRIPE_WEBHOOK_SECRET:
