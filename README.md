@@ -1,4 +1,4 @@
-### This is my portfolio project - Full Stack Room Reservation App
+### Welcome to my portfolio project - Full Stack Room Reservation App
 
 ## Stay Hub
 
