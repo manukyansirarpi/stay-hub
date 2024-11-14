@@ -101,10 +101,9 @@ types/
 ```
 
 Scripts
- - npm run dev: Runs the development server.
- - npm run build: Builds the application for production.
- - npm run start: Starts the production server.
- - npm run lint: Runs ESLint to check for linting errors.
- - npm run seed: Seeds the database with initial data.
-=
- 
+
+- npm run dev: Runs the development server.
+- npm run build: Builds the application for production.
+- npm run start: Starts the production server.
+- npm run lint: Runs ESLint to check for linting errors.
+- # npm run seed: Seeds the database with initial data.
