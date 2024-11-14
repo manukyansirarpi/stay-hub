@@ -22,6 +22,7 @@ const Header = () => {
       dispatch(setIsAuthenticated(true));
     }
   }, [data]);
+
   return (
     <nav className="navbar sticky-top py-2">
       <div className="container">

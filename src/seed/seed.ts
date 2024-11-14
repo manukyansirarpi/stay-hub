@@ -4,7 +4,7 @@ import { rooms } from "./data";
 
 const seedRooms = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/stay-easy");
+    await mongoose.connect("mongodb://localhost:27017/stay-hub");
     await Room.deleteMany();
     console.log("Rooms are deleted");
 

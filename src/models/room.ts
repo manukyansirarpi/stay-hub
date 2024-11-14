@@ -1,23 +1,24 @@
 import mongoose, { Schema, Document } from "mongoose";
+import { UserI } from "./user";
 
 export interface ImageI {
   public_id: string;
   url: string;
 }
 
-export interface Review {
+export interface ReviewI {
   user: mongoose.Schema.Types.ObjectId;
   rating: number;
   comment: string;
 }
 
-export interface Location {
+export interface LocationI {
   type: string;
   coordinates: number[];
   formattedAddress: string;
   city: string;
   state: string;
-  zipcode: string;
+  zipCode: string;
   country: string;
 }
 
@@ -26,34 +27,34 @@ export interface RoomI extends Document {
   description: string;
   pricePerNight: number;
   address: string;
-  location: Location;
+  location: LocationI;
   guestCapacity: number;
   numOfBeds: number;
-  internet: boolean;
-  isPetsAllowed: boolean;
+  isInternet: boolean;
   isBreakfast: boolean;
   isAirConditioned: boolean;
+  isPetsAllowed: boolean;
   isRoomCleaning: boolean;
-  numOfReviews: number;
   ratings: number;
-  numberOfReviews: number;
+  numOfReviews: number;
   images: ImageI[];
   category: string;
-  reviews: Review[];
-  user: mongoose.Schema.Types.ObjectId;
+  reviews: ReviewI[];
+  user: UserI;
   createdAt: Date;
+  numberOfReviews: number;
 }
 
 const RoomSchema: Schema<RoomI> = new Schema({
   name: {
     type: String,
-    required: [true, "Name is required"],
+    required: [true, "Please enter room name"],
     trim: true,
-    maxLength: [200, "Name cannot be more than 100 characters"],
+    maxLength: [200, "Room name cannot exceed 100 characters"],
   },
   description: {
     type: String,
-    required: [true, "Description is required"],
+    required: [true, "Please enter room description"],
   },
   pricePerNight: {
     type: Number,
@@ -76,18 +77,18 @@ const RoomSchema: Schema<RoomI> = new Schema({
     formattedAddress: String,
     city: String,
     state: String,
-    zipcode: String,
+    zipCode: String,
     country: String,
   },
   guestCapacity: {
     type: Number,
-    required: [true, "Please enter guest capacity"],
+    required: [true, "Please enter room guest capacity"],
   },
   numOfBeds: {
     type: Number,
-    required: [true, "Please enter number of beds"],
+    required: [true, "Please enter number of beds in room"],
   },
-  internet: {
+  isInternet: {
     type: Boolean,
     default: false,
   },
@@ -99,19 +100,19 @@ const RoomSchema: Schema<RoomI> = new Schema({
     type: Boolean,
     default: false,
   },
-  isRoomCleaning: {
+  isPetsAllowed: {
     type: Boolean,
     default: false,
   },
-  numOfReviews: {
-    type: Number,
-    default: 0,
+  isRoomCleaning: {
+    type: Boolean,
+    default: false,
   },
   ratings: {
     type: Number,
     default: 0,
   },
-  numberOfReviews: {
+  numOfReviews: {
     type: Number,
     default: 0,
   },
@@ -135,7 +136,6 @@ const RoomSchema: Schema<RoomI> = new Schema({
       message: "Please select correct category for room",
     },
   },
-
   reviews: [
     {
       user: {

@@ -30,7 +30,7 @@ class APIFilters {
     return this;
   }
 
-  pagination(resPerPage: number) {
+  pagination(resPerPage: number): APIFilters {
     const currentPage = Number(this.queryStr?.page) || 1;
     const skip = resPerPage * (currentPage - 1);
 

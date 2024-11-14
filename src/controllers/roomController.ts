@@ -30,8 +30,22 @@ export const allRooms = catchAsyncErrors(async (request: NextRequest) => {
   });
 });
 
+// Create new room  =>  POST: /api/admin/rooms
+export const newRoom = catchAsyncErrors(async (request: NextRequest) => {
+  const body = await request.json();
+
+  body.user = request.user._id;
+
+  const room = await Room.create(body);
+
+  return NextResponse.json({
+    success: true,
+    room,
+  });
+});
+
 // Get room details  => GET: /api/rooms/:id
-export const getRoom = catchAsyncErrors(
+export const getRoomDetails = catchAsyncErrors(
   async (request: NextRequest, params: { id: string }) => {
     const room = await Room.findById(params.id);
 
@@ -46,21 +60,9 @@ export const getRoom = catchAsyncErrors(
   }
 );
 
-// Create new room  =>  POST: /api/admin/rooms
-export const newRoom = catchAsyncErrors(async (request: NextRequest) => {
-  const body = await request.json();
-
-  const room = await Room.create(body);
-
-  return NextResponse.json({
-    success: true,
-    room,
-  });
-});
-
 // Update room details  =>  PUT: /api/admin/rooms/:id
 export const updateRoom = catchAsyncErrors(
-  async (request: NextRequest, params: { id: string }) => {
+  async (request: NextRequest, { params }: { params: { id: string } }) => {
     let room = await Room.findById(params.id);
     const body = await request.json();
 
@@ -82,7 +84,7 @@ export const updateRoom = catchAsyncErrors(
 
 // Delete room  =>  DELETE: /api/admin/rooms/:id
 export const deleteRoom = catchAsyncErrors(
-  async (request: NextRequest, params: { id: string }) => {
+  async (req: NextRequest, { params }: { params: { id: string } }) => {
     const room = await Room.findById(params.id);
 
     if (!room) {
@@ -93,7 +95,6 @@ export const deleteRoom = catchAsyncErrors(
 
     return NextResponse.json({
       success: true,
-      room: {},
     });
   }
 );

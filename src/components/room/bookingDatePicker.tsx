@@ -94,7 +94,7 @@ const BookingDatePicker = ({ room }: Props) => {
     debugger;
     if (error && "data" in error) {
       // @ts-expect-error err
-      toast.error(error?.data?.message);
+      toast.error(error?.data?.errMessage);
     }
 
     if (checkoutData) {

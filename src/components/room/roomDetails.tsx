@@ -13,6 +13,7 @@ interface RoomDetailsProps {
     room: RoomI;
   };
 }
+
 const RoomDetails = ({ data }: RoomDetailsProps) => {
   const { room } = data;
 
@@ -47,7 +48,7 @@ const RoomDetails = ({ data }: RoomDetailsProps) => {
         </div>
       </div>
       <NewReview />
-      <ListReviews />
+      <ListReviews reviews={room?.reviews} />
     </div>
   );
 };

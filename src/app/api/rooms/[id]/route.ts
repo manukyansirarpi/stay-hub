@@ -1,4 +1,4 @@
-import { getRoom } from "@/controllers/roomController";
+import { getRoomDetails } from "@/controllers/roomController";
 import connectDB from "@/lib/db";
 import { NextRequest } from "next/server";
 
@@ -9,5 +9,5 @@ export async function GET(
 ) {
   await connectDB();
 
-  return await getRoom(req, params);
+  return await getRoomDetails(req, params);
 }

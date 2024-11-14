@@ -1,6 +1,12 @@
+import { ReviewI } from "@/models/room";
 import React from "react";
 
-const ListReviews = () => {
+interface ListReviewsProps {
+  reviews: ReviewI[];
+}
+
+const ListReviews = ({ reviews }: ListReviewsProps) => {
+  console.log(reviews);
   return (
     <div className="reviews w-75 mb-5">
       <h3>3 Reviews</h3>

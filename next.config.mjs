@@ -2,7 +2,7 @@
 const nextConfig = {
   env: {
     API_URL: "http://localhost:3000",
-    DB_URI_LOCAl: "mongodb://localhost:27017/stay-easy",
+    DB_URI_LOCAl: "mongodb://localhost:27017/stay-hub",
     DB_URI_PROD: "",
 
     CLOUDINARY_CLOUD_NAME: "dsbli9nhd",
