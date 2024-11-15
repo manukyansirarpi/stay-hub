@@ -26,7 +26,6 @@ const Register = () => {
 
   useEffect(() => {
     if (error && "data" in error) {
-      // @ts-ignore
       toast.error(error?.data?.errMessage);
     }
 

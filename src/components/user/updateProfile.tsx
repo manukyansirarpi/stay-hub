@@ -35,11 +35,12 @@ const UpdateProfile = () => {
     }
 
     if (error && "data" in error) {
+      //@ts-ignore
       toast.error(error?.data?.errMessage);
     }
 
     if (isSuccess) {
-      //@ts-expect-error err
+      //@ts-ignore
       updateSession();
 
       router.refresh();

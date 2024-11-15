@@ -1,10 +1,11 @@
 import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
-import { UserI } from "@/models/user";
+import { UserI } from "./models/user";
+import { withAuth } from "next-auth/middleware";
 
-export async function middleware(req: NextRequest) {
+async function middleware(req: NextRequest) {
   const session = await getToken({ req });
-  console.log("entered to middlware");
+
   if (!session) {
     return NextResponse.json(
       {
@@ -13,12 +14,19 @@ export async function middleware(req: NextRequest) {
       { status: 401 }
     );
   }
+  const user = session.user as UserI;
+  const requestHeaders = new Headers(req.headers);
+  requestHeaders.set("x-user", JSON.stringify(user));``
 
-  req.user = session.user as UserI;
-
-  return NextResponse.next({ headers: req.headers });
+  return NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
+  });
 }
 
+export default withAuth(middleware);
+
 export const config = {
-  matcher: ["/me/:path*"],
+  matcher: ["/api/me/:function*", "/me/:path*"],
 };
