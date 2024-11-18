@@ -424,3 +424,10 @@ footer {
   border-radius: 0.3rem;
   color: #7c683f;
 }
+.image {
+  transition: transform 0.3s ease;
+}
+
+.image:hover {
+  transform: scale(1.05);
+}

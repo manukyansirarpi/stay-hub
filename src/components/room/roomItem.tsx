@@ -10,10 +10,13 @@ interface RoomItemProps {
 
 const RoomItem = ({ room }: RoomItemProps) => {
   return (
-    <div className="col-md-6 col-lg-3 my-3 d-flex">
-      <div className="card p-2 w-100">
+    <div
+      className="my-5 d-flex"
+      style={{ width: "100%", height: "auto", breakInside: "avoid" }}
+    >
+      <div className="">
         <Image
-          className="card-img-top mx-auto"
+          className="card-img-top mx-auto image my-5"
           src={
             room?.images?.length > 0
               ? room.images[0].url
@@ -22,6 +25,9 @@ const RoomItem = ({ room }: RoomItemProps) => {
           alt={room?.name}
           height={170}
           width={100}
+          layout="responsive"
+          objectFit="cover"
+          style={{ transition: "transform 0.3s ease" }}
         />
         <div className="card-body d-flex flex-column">
           <h5 className="card-title">

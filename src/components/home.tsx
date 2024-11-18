@@ -33,7 +33,14 @@ const Home = async ({ data }: HomeProps) => {
         <Link href="/search" className="ml-2 back-to-search">
           <i className="fa fa-arrow-left"></i> Back to Search
         </Link>
-        <div className="row mt-4">
+        <div
+          className=" mt-4"
+          style={{
+            columnCount: 3,
+            columnGap: "16px",
+            padding: "16px",
+          }}
+        >
           {rooms?.length === 0 ? (
             <div className="alert alert-danger mt-5 w-100">
               <b>No Rooms.</b>

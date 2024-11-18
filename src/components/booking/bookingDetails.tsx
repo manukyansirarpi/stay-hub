@@ -19,7 +19,7 @@ const BookingDetails = ({ data }: Props) => {
       <div className="row d-flex justify-content-center">
         <div className="col-12 col-lg-9 mt-5 booking-details">
           <div className="d-flex justify-content-between align-items-center my-5">
-            <h2>Booking # {booking?._id}</h2>
+            <h2>Booking # {booking?.room.name}</h2>
             <Link
               className="btn btn-success"
               href={`/bookings/invoice/${booking?._id}`}

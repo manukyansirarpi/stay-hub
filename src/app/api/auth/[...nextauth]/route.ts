@@ -22,7 +22,7 @@ async function auth(req: NextRequest, res: any) {
     },
     providers: [
       CredentialsProvider({
-        // @ts-ignore
+        //@ts-expect-error TODO: fix this
         async authorize(credentials: Credentials) {
           connectDB();
 
@@ -50,7 +50,7 @@ async function auth(req: NextRequest, res: any) {
     callbacks: {
       jwt: async ({ token, user }) => {
         const jwtToken = token as Token;
-        user && (token.user = user);
+        if (user) token.user = user;
 
         // Update session when user is updated
         if (req.url?.includes("/api/auth/session?update")) {
@@ -64,7 +64,7 @@ async function auth(req: NextRequest, res: any) {
       session: async ({ session, token }) => {
         session.user = token.user as UserI;
 
-        //@ts-ignore
+        //@ts-expect-error Todo: fix this
         delete session?.user?.password;
 
         return session;

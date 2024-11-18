@@ -44,7 +44,7 @@ const Invoice = ({ data }: Props) => {
               <div id="logo" className="my-4">
                 <img src="/images/bookit_logo.png" />
               </div>
-              <h1>INVOICE # {booking?._id}</h1>
+              <h1>INVOICE # {booking?.room.name}</h1>
               <div id="company" className="clearfix">
                 <div>BookIT</div>
                 <div>

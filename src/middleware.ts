@@ -16,7 +16,7 @@ async function middleware(req: NextRequest) {
   }
   const user = session.user as UserI;
   const requestHeaders = new Headers(req.headers);
-  requestHeaders.set("x-user", JSON.stringify(user));``
+  requestHeaders.set("x-user", JSON.stringify(user));
 
   return NextResponse.next({
     request: {
