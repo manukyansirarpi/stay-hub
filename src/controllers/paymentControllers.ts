@@ -10,7 +10,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 // Generate stripe checkout session => /api/payment/checkout_session/:roomId
 export const stripeCheckoutSession = catchAsyncErrors(
-  async (req: NextRequest, { params }: { params: { id: string } }) => {
+  async (req: NextRequest, params: any) => {
     const { searchParams } = new URL(req.url);
     const userSession = await getToken({ req });
 

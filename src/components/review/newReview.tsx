@@ -17,7 +17,6 @@ const NewReview = () => {
         tabIndex={-1}
         role="dialog"
         aria-labelledby="ratingModalLabel"
-        aria-hidden="true"
       >
         <div className="modal-dialog" role="document">
           <div className="modal-content">

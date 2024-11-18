@@ -32,7 +32,6 @@ const BookingDatePicker = ({ room }: Props) => {
     useLazyStripeCheckoutQuery();
 
   useNewBookingMutation();
-  console.log("checkoutData", checkoutData);
   const [checkBookingAvailability, { data }] =
     useLazyCheckBookingAvailabilityQuery();
 
@@ -72,6 +71,8 @@ const BookingDatePicker = ({ room }: Props) => {
       daysOfStay,
       amount,
     };
+
+    console.log("checkoutData", checkoutData);
     stripeCheckout({ id: room?._id, checkoutData });
   };
 

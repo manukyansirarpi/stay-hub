@@ -16,7 +16,7 @@ interface HomeProps {
   };
 }
 
-const Home = async ({ data }: HomeProps) => {
+const Home = ({ data }: HomeProps) => {
   const searchParams = useSearchParams();
   const location = searchParams.get("location");
 
@@ -47,7 +47,7 @@ const Home = async ({ data }: HomeProps) => {
             </div>
           ) : (
             rooms?.map((room: RoomI) => (
-              <RoomItem key={room.id} room={room}></RoomItem>
+              <RoomItem key={room?._id} room={room}></RoomItem>
             ))
           )}
         </div>

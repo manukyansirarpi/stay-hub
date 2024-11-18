@@ -10,11 +10,11 @@ const RoomFeatures = ({ room }: RoomFeaturesProps) => {
     <div className="features mt-5">
       <h3 className="mb-4">Features:</h3>
       <div className="room-feature">
-        <i className="fa fa-cog fa-fw fa-users" aria-hidden="true"></i>
+        <i className="fa fa-cog fa-fw fa-users"></i>
         <p>{room?.guestCapacity} Guests</p>
       </div>
       <div className="room-feature">
-        <i className="fa fa-cog fa-fw fa-bed" aria-hidden="true"></i>
+        <i className="fa fa-cog fa-fw fa-bed"></i>
         <p>{room?.numOfBeds} Beds</p>
       </div>
       <div className="room-feature">
@@ -24,7 +24,6 @@ const RoomFeatures = ({ room }: RoomFeaturesProps) => {
               ? "fa fa-check text-success"
               : "fa fa-times text-danger"
           }
-          aria-hidden="true"
         ></i>
         <p>Breakfast</p>
       </div>
@@ -35,7 +34,6 @@ const RoomFeatures = ({ room }: RoomFeaturesProps) => {
               ? "fa fa-check text-success"
               : "fa fa-times text-danger"
           }
-          aria-hidden="true"
         ></i>
         <p>Internet</p>
       </div>
@@ -46,7 +44,6 @@ const RoomFeatures = ({ room }: RoomFeaturesProps) => {
               ? "fa fa-check text-success"
               : "fa fa-times text-danger"
           }
-          aria-hidden="true"
         ></i>
         <p>Air Conditioned</p>
       </div>
@@ -57,7 +54,6 @@ const RoomFeatures = ({ room }: RoomFeaturesProps) => {
               ? "fa fa-check text-success"
               : "fa fa-times text-danger"
           }
-          aria-hidden="true"
         ></i>
         <p>Pets Allowed</p>
       </div>
@@ -68,7 +64,6 @@ const RoomFeatures = ({ room }: RoomFeaturesProps) => {
               ? "fa fa-check text-success"
               : "fa fa-times text-danger"
           }
-          aria-hidden="true"
         ></i>
         <p>Room Cleaning</p>
       </div>
