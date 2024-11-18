@@ -72,7 +72,6 @@ const BookingDatePicker = ({ room }: Props) => {
       amount,
     };
 
-    console.log("checkoutData", checkoutData);
     stripeCheckout({ id: room?._id, checkoutData });
   };
 
