@@ -1,6 +1,5 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose, { Schema, Document, ObjectId } from "mongoose";
 import { UserI } from "./user";
-
 export interface ImageI {
   public_id: string;
   url: string;
@@ -23,6 +22,7 @@ export interface LocationI {
 }
 
 export interface RoomI extends Document {
+  _id: ObjectId;
   name: string;
   description: string;
   pricePerNight: number;

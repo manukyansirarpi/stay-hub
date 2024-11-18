@@ -1,8 +1,9 @@
-import mongoose, { Document, Schema } from "mongoose";
+import mongoose, { Document, Schema, ObjectId } from "mongoose";
 import { UserI } from "./user";
 import { RoomI } from "./room";
 
 export interface BookingI extends Document {
+  _id: ObjectId;
   room: RoomI;
   user: UserI;
   checkInDate: Date;

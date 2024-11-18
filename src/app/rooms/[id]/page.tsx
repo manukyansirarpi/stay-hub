@@ -22,7 +22,6 @@ export default async function RoomDetailsPage({ params }: RoomDetailsProps) {
   if (data?.errMessage) {
     return <Error error={data} />;
   }
-
   return <RoomDetails data={data} />;
 }
 

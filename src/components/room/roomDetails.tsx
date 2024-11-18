@@ -47,7 +47,7 @@ const RoomDetails = ({ data }: RoomDetailsProps) => {
           <BookingDatePicker room={room} />
         </div>
       </div>
-      <NewReview />
+      <NewReview roomId={room._id.toString()} />
       <ListReviews reviews={room?.reviews} />
     </div>
   );

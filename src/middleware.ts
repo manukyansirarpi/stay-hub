@@ -28,5 +28,12 @@ async function middleware(req: NextRequest) {
 export default withAuth(middleware);
 
 export const config = {
-  matcher: ["/api/me/:function*", "/me/:path*"],
+  matcher: [
+    "/api/me/:function*",
+    "/me/:path*",
+    "/api/reviews/:function*",
+    "/reviews/:path*",
+    "/api/bookings/:function*",
+    "/bookings/:path*",
+  ],
 };

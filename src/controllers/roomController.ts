@@ -1,5 +1,7 @@
 import { catchAsyncErrors } from "@/middlewares/catchAsyncErrors";
-import Room, { RoomI } from "@/models/room";
+import Booking from "@/models/booking";
+import Room, { ReviewI, RoomI } from "@/models/room";
+import { UserI } from "@/models/user";
 import APIFilters from "@/utils/apiFilters";
 import ErrorHandler from "@/utils/errorHandler";
 import { NextRequest, NextResponse } from "next/server";
@@ -98,3 +100,84 @@ export const deleteRoom = catchAsyncErrors(
     });
   }
 );
+
+// Create/Update room review  =>  PUT: /api/reviews
+export const createRoomReview = catchAsyncErrors(async (req: NextRequest) => {
+  const body = await req.json();
+  const { rating, comment, roomId } = body;
+
+  const userHeader = req.headers.get("x-user") as string | undefined;
+
+  if (!userHeader) {
+    return NextResponse.json({
+      success: false,
+      message: "User header not found",
+    });
+  }
+
+  const userHeaderData = JSON.parse(userHeader) as UserI;
+
+  const review = {
+    user: userHeaderData._id,
+    rating: Number(rating),
+    comment,
+  };
+
+  const room = await Room.findById(roomId);
+
+  const isReviewed = room?.reviews?.find(
+    (r: ReviewI) => r.user?.toString() === req?.user?._id?.toString()
+  );
+
+  if (isReviewed) {
+    room?.reviews?.forEach((review: ReviewI) => {
+      if (review.user?.toString() === req?.user?._id?.toString()) {
+        review.comment = comment;
+        review.rating = rating;
+      }
+    });
+  } else {
+    room.reviews.push(review);
+    room.numOfReviews = room.reviews.length;
+  }
+
+  room.ratings =
+    room?.reviews?.reduce(
+      (acc: number, item: { rating: number }) => item.rating + acc,
+      0
+    ) / room?.reviews?.length;
+
+  await room.save();
+
+  return NextResponse.json({
+    success: true,
+  });
+});
+
+// Can user review room  =>  /api/reviews/can_review
+export const canReview = catchAsyncErrors(async (req: NextRequest) => {
+  const { searchParams } = new URL(req.url);
+  const roomId = searchParams.get("roomId");
+
+  const userHeader = req.headers.get("x-user") as string | undefined;
+
+  if (!userHeader) {
+    return NextResponse.json({
+      success: false,
+      message: "User header not found",
+    });
+  }
+
+  const userHeaderData = JSON.parse(userHeader) as UserI;
+
+  const bookings = await Booking.find({
+    user: userHeaderData._id,
+    room: roomId,
+  });
+
+  const canReview = bookings?.length > 0 ? true : false;
+
+  return NextResponse.json({
+    canReview,
+  });
+});
