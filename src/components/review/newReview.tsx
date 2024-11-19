@@ -19,6 +19,7 @@ const NewReview = ({ roomId }: { roomId: string }) => {
 
   useEffect(() => {
     if (error && "data" in error) {
+      // @ts-expect-error err
       toast.error(error?.data?.errMessage);
     }
 

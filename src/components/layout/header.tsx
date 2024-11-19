@@ -47,7 +47,8 @@ const Header = () => {
                   <img
                     src={
                       user?.avatar && user?.avatar
-                        ? data?.user?.avatar?.url
+                        ? // @ts-expect-error err
+                          data?.user?.avatar?.url
                         : "/images/default_avatar.jpg"
                     }
                     alt="John Doe"

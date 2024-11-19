@@ -30,6 +30,7 @@ const RoomFeatures = ({ room }: RoomFeaturesProps) => {
       <div className="room-feature">
         <i
           className={
+            // @ts-expect-error err
             room?.internet
               ? "fa fa-check text-success"
               : "fa fa-times text-danger"

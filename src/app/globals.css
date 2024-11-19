@@ -301,13 +301,13 @@ nav {
 }
 
 .card-body .view-btn {
-  background-color: #917d53;
-  color: white;
   text-decoration: none;
+
+  border: 1px solid #917d53;
 }
 
-.card-body .view-btn:hover {
-  background-color: #917d53;
+.view-btn:hover {
+  background-color: #483c22;
   color: white;
 }
 

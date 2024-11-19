@@ -13,16 +13,19 @@ const ListReviews = ({ reviews }: ListReviewsProps) => {
       <h3>{reviews?.length} Reviews</h3>
       <hr />
 
-      {reviews?.map((review) => (
-        <div className="review-card my-3">
+      {reviews?.map((review, i) => (
+        <div className="review-card my-3" key={i}>
           <div className="row">
             <div className="col-3 col-lg-1">
               <img
                 src={
+                  // @ts-expect-error err
                   review?.user?.avatar
-                    ? review?.user?.avatar?.url
+                    ? // @ts-expect-error err
+                      review?.user?.avatar?.url
                     : "/images/default_avatar.jpg"
                 }
+                // @ts-expect-error err
                 alt={review?.user?.name}
                 width={60}
                 height={60}
@@ -38,7 +41,13 @@ const ListReviews = ({ reviews }: ListReviewsProps) => {
                 starSpacing="1px"
                 name="rating"
               />
-              <p className="review_user mt-1">by {review?.user?.name}</p>
+              <p className="review_user mt-1">
+                by{" "}
+                {
+                  // @ts-expect-error err
+                  review?.user?.name
+                }
+              </p>
               <p className="review_comment">{review?.comment}</p>
             </div>
             <hr />
