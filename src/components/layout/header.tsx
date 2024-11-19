@@ -46,7 +46,7 @@ const Header = () => {
                 <figure className="avatar avatar-nav">
                   <img
                     src={
-                      user?.avatar
+                      user?.avatar && user?.avatar
                         ? data?.user?.avatar?.url
                         : "/images/default_avatar.jpg"
                     }

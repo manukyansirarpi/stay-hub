@@ -47,7 +47,7 @@ const Home = ({ data }: HomeProps) => {
             </div>
           ) : (
             rooms?.map((room: RoomI) => (
-              <RoomItem key={room?._id} room={room}></RoomItem>
+              <RoomItem key={room.id} room={room}></RoomItem>
             ))
           )}
         </div>
