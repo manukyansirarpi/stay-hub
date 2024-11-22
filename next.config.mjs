@@ -12,7 +12,8 @@ const nextConfig = {
       "sk_test_51QCy8a04wfBYPN36bxWpPMqR3KUCM6mfaIvxf8wEDWS6cjF9v4snAgdsE7PhjVsFk8Bg2ijIDsrer2S8QwbuiWz6002jIbUubM",
 
     DB_URI_LOCAl: "mongodb://localhost:27017/stay-hub",
-    DB_URI: "mongodb://127.0.0.1:27017/stay-hub",
+    DB_URI:
+      "mongodb+srv://manukyansirarpi1:Iw4VXgkJvlRmAcNP@cluster0.mx4zzsp.mongodb.net/stay-hub?retryWrites=true&w=majority&appName=Cluster0",
 
     CLOUDINARY_CLOUD_NAME: "dsbli9nhd",
     CLOUDINARY_API_KEY: "782399657795877",
