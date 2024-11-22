@@ -1,6 +1,8 @@
 import Error from "@/app/error";
 import RoomDetails from "@/components/room/roomDetails";
 
+export const revalidate = 0;
+
 interface RoomDetailsProps {
   params: {
     id: string;
